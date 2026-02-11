@@ -1,22 +1,54 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { CiSearch } from 'react-icons/ci';
 import { useNavigate } from 'react-router-dom';
 
 function SearchOrder() {
+  const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const inputRef = useRef();
   const navigate = useNavigate();
+
   function handelSubmit(e) {
     e.preventDefault();
+    if (!query.trim()) return;
     navigate(`/order/${query}`);
+    setIsOpen(false);
   }
+
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current?.focus();
+    }
+  }, [isOpen]);
+
   return (
-    <form onSubmit={handelSubmit}>
-      <input
-        placeholder="search order"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="w-28 rounded-full px-5 py-1 text-xs outline-none transition-all duration-300 placeholder:text-stone-400 focus:w-36 focus:ring focus:ring-yellow-500 sm:py-4 sm:text-sm sm:w-64 sm:focus:w-72"
-      />
-    </form>
+    <div className="flex sm:items-center sm:justify-end">
+      <form
+        onSubmit={handelSubmit}
+        className="relative flex items-center justify-end" 
+      >
+        <CiSearch
+          className="z-10 cursor-pointer text-[24px]" 
+          onMouseDown={(e) => {
+            e.preventDefault();
+            setIsOpen((open) => !open);
+          }}
+        />
+
+        <input
+          ref={inputRef}
+          placeholder="Search order..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onBlur={() => setIsOpen(false)}
+          className={`sm:absolute sm:right-0 border-b-[1px]  border-black bg-transparent pr-8 outline-none transition-all duration-500 ease-in-out ${
+            isOpen
+              ? 'sm:w-64 sm:translate-x-0 sm:opacity-100'
+              : 'sm:pointer-events-none sm:w-0 sm:-translate-x-4 sm:opacity-0'
+          } `}
+        />
+      </form>{' '}
+    </div>
   );
 }
 
