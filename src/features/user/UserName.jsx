@@ -1,10 +1,12 @@
-import { useSelector } from 'react-redux';
+import { CiUser } from 'react-icons/ci';
 
 function UserName() {
-  const userName = useSelector(
-    (state) => state.user.username,
+  return (
+    <div className=" relative flex items-center  gap-2">
+      <CiUser className="text-[24px] leading-none" />
+      <span className=" absolute text-sm top-2 left-7"></span>
+    </div>
   );
-  return <div className="hidden md:block">{userName}</div>;
 }
 
 export default UserName;
