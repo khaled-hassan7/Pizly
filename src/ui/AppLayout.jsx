@@ -5,7 +5,10 @@ import Loader from './Loader';
 function AppLayOut() {
   const navigation = useNavigation();
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+    <div className=" relative grid h-screen grid-rows-[auto_1fr_auto] ">
+      {/* Background Layer */}
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#f8f4f2] to-white" />
+
       {navigation.state === 'loading' && <Loader />}
 
       <div className="fixed left-0 top-0 z-50 w-full">
