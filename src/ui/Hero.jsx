@@ -1,11 +1,11 @@
-import Button from "./Button";
+import Button from './Button';
 
 function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img
-          src="../../public/hero-img-2.jpg"
+          src="../../src/assets/images/hero-img-2.jpg"
           alt="Delicious Pizza Background"
           className="h-full w-full object-cover"
         />
@@ -27,7 +27,7 @@ function Hero() {
           </p>
 
           <div className="mt-10 flex items-center justify-center">
-            <Button type="primary" to ="menu">
+            <Button type="primary" to="menu">
               View Menu
             </Button>
           </div>
