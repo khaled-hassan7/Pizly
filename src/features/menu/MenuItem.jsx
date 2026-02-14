@@ -29,46 +29,51 @@ function MenuItem({ pizza }) {
       name,
       quantity: 1,
       totalPrice: unitPrice,
+      imageUrl,
     };
     dispatch(addItem(newItem));
   }
 
   return (
-    <li className="flex gap-4 py-2">
-      <img
-        src={imageUrl}
-        alt={name}
-        className={`h-24 ${soldOut ? 'opacity-70 grayscale' : ''} `}
-      />
-      <div className="flex flex-grow flex-col">
-        <p className="font-medium">{name}</p>
-        <p className="text-sm">{ingredients.join(', ')}</p>
-        <div className="mt-auto flex items-center justify-between">
+    <li className="flex flex-col items-center justify-start sm:gap-5">
+      <div className="flex aspect-square items-center justify-start">
+        <img
+          src={imageUrl}
+          alt={name}
+          className={`h-full w-full rounded-3xl object-cover ${soldOut ? 'opacity-70 grayscale' : ''} `}
+        />
+      </div>
+
+      <div className="flex min-h-36 flex-col items-center justify-center sm:gap-5">
+        <p className="font-bold">{name}</p>
+        <p className="text-sm text-center">{ingredients.join(', ')}</p>
+        <div className="mt-auto flex flex-col items-center justify-between">
           {!soldOut ? (
             <p className="text-sm">
               {formatCurrency(unitPrice)}
             </p>
           ) : (
-            <p className="text-sm font-medium uppercase text-stone-500">
+            <p className="px-4 py-2 text-sm font-medium uppercase text-stone-500 md:px-5 md:py-2.5">
               Sold out
             </p>
           )}
+          <div className="flex h-10 items-center justify-center">
+            {isInCart && (
+              <div className="flex gap-2 sm:gap-4">
+                <UpdateItemQuantity
+                  id={id}
+                  quantity={CurrentQuantity}
+                />
+                <DeleteItem id={id} />
+              </div>
+            )}
 
-          {isInCart && (
-            <div className="flex gap-2 sm:gap-4">
-              <UpdateItemQuantity
-                id={id}
-                CurrentQuantity={CurrentQuantity}
-              />
-              <DeleteItem id={id}></DeleteItem>
-            </div>
-          )}
-
-          {!soldOut && !isInCart && (
-            <Button type="small" onClick={handelAddItem}>
-              ADD TO CART
-            </Button>
-          )}
+            {!soldOut && !isInCart && (
+              <Button type="small" onClick={handelAddItem}>
+                ADD TO CART
+              </Button>
+            )}
+          </div>{' '}
         </div>
       </div>
     </li>
