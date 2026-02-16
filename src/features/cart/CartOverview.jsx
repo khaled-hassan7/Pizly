@@ -1,26 +1,32 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getTotalCartQuantity } from './cartSlice';
 import { CiShoppingCart } from 'react-icons/ci';
+import { useState } from 'react';
+import Cart from './Cart';
 
 function CartOverview() {
+  const [isOpen, setIsOpen] = useState(false);
   const pizzaQuantity = useSelector(getTotalCartQuantity);
   const isQuantity = pizzaQuantity > 0;
+
   return (
     <div>
-      <Link
-        to="/cart"
+      <button
+        onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-center rounded-md transition-transform active:scale-95"
       >
         <span className="relative">
-          <CiShoppingCart className="text-[24px]" />
+          <CiShoppingCart className="text-[24px] text-white sm:text-black" />
           {isQuantity && (
             <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-pizly text-[10px] font-bold text-white">
               <span>{pizzaQuantity}</span>
             </span>
           )}
         </span>
-      </Link>
+      </button>
+      
+        <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
+      
     </div>
   );
 }

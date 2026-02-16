@@ -1,14 +1,8 @@
-import LinkButton from '../../ui/LinkButton';
-
 function EmptyCart() {
   return (
-    <div className="p-5">
-      <LinkButton to="/menu" type="primary">
-        &larr; Back to menu
-      </LinkButton>
-      <p className="mt-7 font-semibold">
-        Your cart is still empty. Start adding some pizzas
-        :)
+    <div className="flex flex-grow items-center justify-center pt-20">
+      <p className="text-sm font-medium text-stone-500">
+        Add items to start your order. :)
       </p>
     </div>
   );
