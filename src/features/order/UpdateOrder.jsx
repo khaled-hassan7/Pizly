@@ -5,7 +5,7 @@ import { updateOrder } from '../../services/apiRestaurant';
 function UpdateOrder() {
   const fetcher = useFetcher();
   return (
-    <fetcher.Form className="text-right" method="PATCH">
+    <fetcher.Form className="text-right pt-5" method="PATCH">
       <Button type="primary">get priority</Button>
     </fetcher.Form>
   );

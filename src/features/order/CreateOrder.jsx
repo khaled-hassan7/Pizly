@@ -48,7 +48,7 @@ function CreateOrder() {
 
   if (!cart.length) return <EmptyCart />;
   return (
-    <div className="px-4 py-6">
+    <div className="p-5 mt-40 max-w-2xl mx-auto w-full sm:shadow-md sm:bg-white rounded-xl ">
       <h2 className="mb-8 text-xl font-bold">
         Ready to order? Let's go!
       </h2>
