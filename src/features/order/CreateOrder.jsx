@@ -46,9 +46,9 @@ function CreateOrder() {
     : 0;
   const totalPrice = totalCartPrice + prioprtyPrice;
 
-  if (!cart.length) return <EmptyCart />;
+  if (!cart.length) return <EmptyCart isFullPage={true} />;
   return (
-    <div className="p-5 mt-40 max-w-2xl mx-auto w-full sm:shadow-md sm:bg-white rounded-xl ">
+    <div className="p-5 pt-40 max-w-2xl mx-auto w-full sm:shadow-md sm:bg-white rounded-xl  sm:pb-12 ">
       <h2 className="mb-8 text-xl font-bold">
         Ready to order? Let's go!
       </h2>
