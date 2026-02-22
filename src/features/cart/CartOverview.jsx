@@ -12,21 +12,23 @@ function CartOverview() {
   return (
     <div>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen((prev) => !prev);
+        }}
         className="flex items-center justify-center rounded-md transition-transform active:scale-95"
       >
         <span className="relative">
-          <CiShoppingCart className="text-[24px] text-white sm:text-black" />
+          <CiShoppingCart className="text-[24px] sm:text-black" />
           {isQuantity && (
-            <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-pizly text-[10px] font-bold text-white">
+            <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-400 text-[10px] font-bold text-white">
               <span>{pizzaQuantity}</span>
             </span>
           )}
         </span>
       </button>
-      
-        <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
-      
+
+      <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }
