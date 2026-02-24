@@ -7,7 +7,7 @@ function AppLayOut() {
   const navigation = useNavigation();
   const { triggerRef, isScrolled } = useScroll();
   return (
-    <div className="relative h-screen">
+    <div className="relative min-h-screen ">
       {/* Background Layer */}
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#f8f4f2] to-white" />
 
