@@ -15,7 +15,7 @@ import Order, {
   loader as loaderOrder,
 } from './features/order/Order';
 import { action as updateOrderAction } from './features/order/UpdateOrder';
-import AppLayOut from './ui/AppLayOut';
+import AppLayOut from './ui/AppLayout';
 
 const router = createBrowserRouter([
   {
