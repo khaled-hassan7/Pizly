@@ -2,7 +2,7 @@ import Button from './Button';
 
 function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-[100dvh] touch-none  ">
       <div className="absolute inset-0 -z-10">
         <img
           src="../../src/assets/images/hero-img-2.jpg"
@@ -12,7 +12,7 @@ function Hero() {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      <div className="flex h-full flex-col items-center justify-center px-4 text-center">
+      <div className="flex h-full flex-col items-center justify-center px-4 text-center ">
         <div className="flex flex-col items-center">
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
             The best pizza.
