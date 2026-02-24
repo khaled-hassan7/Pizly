@@ -25,10 +25,11 @@ function SearchOrder() {
     <div className="flex sm:items-center sm:justify-end">
       <form
         onSubmit={handelSubmit}
-        className="relative flex items-center justify-end" 
+        className="relative flex items-center justify-end"
       >
         <CiSearch
-          className="z-10 cursor-pointer text-[24px]" 
+          className="z-10 cursor-pointer antialiased sm:text-white"
+          size={28}
           onMouseDown={(e) => {
             e.preventDefault();
             setIsOpen((open) => !open);
@@ -41,7 +42,7 @@ function SearchOrder() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onBlur={() => setIsOpen(false)}
-          className={`sm:absolute sm:right-0 border-b-[1px]  border-black bg-transparent pr-8 outline-none transition-all duration-500 ease-in-out ${
+          className={`border-b-[1px] border-black bg-transparent pr-8 outline-none transition-all duration-500 ease-in-out sm:absolute sm:right-0 ${
             isOpen
               ? 'sm:w-64 sm:translate-x-0 sm:opacity-100'
               : 'sm:pointer-events-none sm:w-0 sm:-translate-x-4 sm:opacity-0'
