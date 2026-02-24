@@ -35,8 +35,10 @@ function MenuHero() {
   );
 
   return (
-    <div className="grid grid-cols-1 self-center justify-self-center overflow-x-hidden sm:grid-cols-12 sm:pt-40">
-      <div className="order-2 m-auto flex flex-col items-center justify-center p-5 sm:order-1 sm:col-span-4 sm:col-start-2">
+    <div className="grid grid-cols-1 self-center justify-self-center 
+     lg:grid-cols-12 lg:pt-40">
+      <div className="order-2 m-auto flex flex-col items-center justify-center
+       p-5 lg:order-1 lg:col-span-4 lg:col-start-2">
         <h1 className="text-4xl font-extrabold sm:text-6xl">
           Every Slice Tells a Story
         </h1>
@@ -58,7 +60,7 @@ function MenuHero() {
           tradition while embracing modern flavors.
         </p>{' '}
       </div>
-      <div className="relative order-1 aspect-[4/4] overflow-hidden rounded-b-[50px] sm:order-2 sm:col-span-6 sm:col-start-7 sm:aspect-[4/3] sm:items-end sm:rounded-[100px]">
+      <div className="relative order-1 aspect-[4/4] overflow-hidden rounded-b-[50px] lg:order-2 lg:col-span-6 lg:col-start-7 lg:aspect-[4/3] lg:items-end lg:rounded-[100px]">
         <div
           className="flex h-full"
           style={{
