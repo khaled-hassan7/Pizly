@@ -2,11 +2,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import Home from './ui/Home';
+import Home from './pages/Home';
 import Error from './ui/Error';
-import Menu, {
+import MenuPage, {
   loader as menuLoader,
-} from './features/menu/Menu';
+} from './pages/MinuPage';
 import Cart from './features/cart/Cart';
 import CreatOrder, {
   action as creatOrderAction,
@@ -15,7 +15,7 @@ import Order, {
   loader as loaderOrder,
 } from './features/order/Order';
 import { action as updateOrderAction } from './features/order/UpdateOrder';
-import AppLayOut from './ui/AppLayOut';
+import AppLayOut from './ui/AppLayout';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/menu',
-        element: <Menu />,
+        element: <MenuPage />,
         loader: menuLoader,
         errorElement: <Error />,
       },

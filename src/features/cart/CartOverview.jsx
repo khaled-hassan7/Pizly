@@ -1,22 +1,34 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getTotalCartQuantity } from './cartSlice';
-import { getTotalCartPrice } from './cartSlice';
-import {formatCurrency} from '../../utils/helpers';
+import { CiShoppingCart } from 'react-icons/ci';
+import { useState } from 'react';
+import Cart from './Cart';
 
 function CartOverview() {
+  const [isOpen, setIsOpen] = useState(false);
   const pizzaQuantity = useSelector(getTotalCartQuantity);
-  const pizzaTotalPrice = useSelector(getTotalCartPrice);
-
-  if (!pizzaQuantity) return
+  const isQuantity = pizzaQuantity > 0;
 
   return (
-    <div className="flex justify-between bg-stone-800 p-4 text-sm uppercase text-stone-200 sm:p-6 md:text-base">
-      <p className="space-x-2 font-semibold text-stone-300 sm:space-x-6">
-        <span>{pizzaQuantity} pizzas</span>
-        <span>{formatCurrency(pizzaTotalPrice)}</span>
-      </p>
-      <Link to="/Cart">Cart</Link>
+    <div>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen((prev) => !prev);
+        }}
+        className="flex items-center justify-center rounded-md transition-transform active:scale-95"
+      >
+        <span className="relative">
+          <CiShoppingCart className=" text-white antialiased  " size={30} />
+          {isQuantity && (
+            <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-400 text-[10px] font-bold text-white">
+              <span>{pizzaQuantity}</span>
+            </span>
+          )}
+        </span>
+      </button>
+
+      <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }

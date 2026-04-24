@@ -39,7 +39,7 @@ function Order() {
 
   console.log(priorityPrice )
   return (
-    <div className="space-y-8 px-4 py-6">
+    <div className="p-10 pt-40 max-w-4xl mx-auto w-full sm:shadow-md sm:bg-white rounded-xl sm:mb-2">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-xl font-bold">{` Order ${id} Status`}</h2>
 

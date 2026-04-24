@@ -1,21 +1,25 @@
-import { useLoaderData } from "react-router-dom";
-import { getMenu } from "../../services/apiRestaurant";
-import MenuItem from "./MenuItem";
+import MenuItem from './MenuItem';
+import MenuHero from './MenuHero';
 
-function Menu() {
-  const menu = useLoaderData();
+function Menu({ menu }) {
   return (
-    <ul className="divide-y divide-stone-200 ">
-      {menu.map((pizza) => (
-        <MenuItem pizza={pizza} key={pizza.id} />
-      ))}
-    </ul>
-  );
-}
+    <div className="flex flex-col items-center justify-center gap-20">
+      <MenuHero />
 
-export async function loader() {
-  const menu = await getMenu();
-  return menu;
+      <div className="">
+        <h2 className="text-6xl font-extrabold text-pizly sm:text-8xl">
+          our menu
+        </h2>
+      </div>
+
+      <ul className="grid grid-cols-2 gap-5 px-2 
+      lg:grid-cols-[auto_auto_auto] lg:gap-20 lg:px-0 pb-40">
+        {menu.map((pizza) => (
+          <MenuItem pizza={pizza} key={pizza.id} />
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default Menu;

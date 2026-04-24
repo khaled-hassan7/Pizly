@@ -1,15 +1,25 @@
-import LinkButton from '../../ui/LinkButton';
+import Button from '../../ui/Button';
+function EmptyCart({ isFullPage = true, setIsOpen }) {
+  const containerStyle = isFullPage
+    ? 'flex flex-grow items-center justify-center pt-40 flex-col pb-8 '
+    : 'flex flex-grow items-center justify-center pt-20';
 
-function EmptyCart() {
   return (
-    <div className="p-5">
-      <LinkButton to="/menu" type="primary">
-        &larr; Back to menu
-      </LinkButton>
-      <p className="mt-7 font-semibold">
-        Your cart is still empty. Start adding some pizzas
-        :)
+    <div className={containerStyle}>
+      <p className="text-sm font-medium text-stone-500">
+        Add items to start your order. :)
       </p>
+      {isFullPage && (
+        <div className="mt-10">
+          <Button
+            type="primary"
+            to="/menu"
+            onClick={() => setIsOpen(false)}
+          >
+            Explore our Menu
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
