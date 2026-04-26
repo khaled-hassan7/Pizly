@@ -6,7 +6,7 @@ import {
   currentQuantityItemById,
 } from '../cart/cartSlice';
 import DeleteItem from '../cart/DeleteItem';
-import UpdateItemQuantity from '../cart/updateItemQuantity';
+import UpdateItemQuantity from '../cart/UpdateItemQuantity';
 import useReveal from '../../hooks/useReveal';
 function MenuItem({ pizza }) {
   const { triggerRef, hasAppeared } = useReveal();
@@ -48,7 +48,7 @@ function MenuItem({ pizza }) {
         <img
           src={imageUrl}
           alt={name}
-          className={`h-full w-full rounded-3xl object-cover transition-transform duration-300 hover:scale-110 hover:-translate-y-2 hover:shadow-lg ${soldOut ? 'opacity-70 grayscale' : ''} `}
+          className={`h-full w-full rounded-3xl object-cover transition-transform duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-lg ${soldOut ? 'opacity-70 grayscale' : ''} `}
         />
       </div>
 

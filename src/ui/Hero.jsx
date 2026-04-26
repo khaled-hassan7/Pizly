@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Button from './Button';
+import heroImg from '../assets/images/hero-img-2.avif';
 
 function Hero() {
   useEffect(() => {
@@ -14,12 +15,13 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative w-screen overflow-hidden h-[100dvh]  touch-none">
-      <div className="absolute inset-0 -z-10">
+    <section className="relative h-[100dvh] w-screen touch-none overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-[#800000]">
         <img
-          src="../../src/assets/images/hero-img-2.jpg"
+          src={heroImg}
           alt="Delicious Pizza Background"
           className="h-full w-full object-cover"
+          fetchpriority="high"
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

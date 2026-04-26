@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-const imges = [
-  '/src/assets/images/hero-minu-1.avif',
-  '/src/assets/images/hero-minu-2.avif',
-  '/src/assets/images/hero-minu-3.avif',
-];
+
+import hero1 from '../../assets/images/hero-minu-1.avif';
+import hero2 from '../../assets/images/hero-minu-2.avif';
+import hero3 from '../../assets/images/hero-minu-3.avif';
+
+const imges = [hero1, hero2, hero3];
 
 function MenuHero() {
   const [index, setIndex] = useState(0);
@@ -35,10 +36,8 @@ function MenuHero() {
   );
 
   return (
-    <div className="grid grid-cols-1 self-center justify-self-center 
-     lg:grid-cols-12 lg:pt-40">
-      <div className="order-2 m-auto flex flex-col items-center justify-center
-       p-5 lg:order-1 lg:col-span-4 lg:col-start-2">
+    <div className="grid grid-cols-1 self-center justify-self-center lg:grid-cols-12 lg:pt-40">
+      <div className="order-2 m-auto flex flex-col items-center justify-center p-5 lg:order-1 lg:col-span-4 lg:col-start-2">
         <h1 className="text-4xl font-extrabold sm:text-6xl">
           Every Slice Tells a Story
         </h1>
