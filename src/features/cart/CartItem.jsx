@@ -1,4 +1,4 @@
-import UpdateItemQuantity from './updateItemQuantity';
+import UpdateItemQuantity from './UpdateItemQuantity';
 
 function CartItem({ item }) {
   const { pizzaId, name, quantity, totalPrice, imageUrl } =
