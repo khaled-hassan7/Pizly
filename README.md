@@ -1,5 +1,7 @@
 # 🍕 Pizly - Professional Pizza Delivery Experience
 
+**🔗 [Live Demo](https://pizly.vercel.app)**
+
 **Pizly** is a high-performance, mobile-first React application. I took a standard educational project and performed a **complete architectural and UI/UX overhaul**, transforming it from a basic training app into a professional-grade platform.
 
 ---
